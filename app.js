@@ -173,7 +173,7 @@ function isFormComplete(human) {
 
   // On button click, prepare and display infographic
   compareBtn.addEventListener("click", function() {
-      const humanData = getHumanData();
+    const humanData = getHumanData();
     if (isFormComplete(humanData)) {
       let dinoArray = getDinosaurs(dinoData, humanData);
 
@@ -196,4 +196,6 @@ function isFormComplete(human) {
  * TODO: make element references DRY
  * TODO: add a hover state to display the rest of the facts
  * TODO: refactor
+ * - invert color scheme so error styles nicely contrast
+ * - rename error classes & style selectors
  */
