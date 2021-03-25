@@ -124,16 +124,18 @@ function displayGrid(dinos, human) {
 
 function clearForm() {
   const fields = document.querySelectorAll("input");
+  const validation = document.querySelector(".validation");
+  const validationSpecific = document.querySelector(".validation-specific");
   fields.forEach(field => (field.value = ""));
-  const fieldError = document.querySelector(".error");
-  if (fieldError) fieldError.style.display = "none";
+  validation.innerHTML = "";
+  validationSpecific.innerHTML = "";
 }
 
 function displayRefreshBtn() {
   const form = document.querySelector("#dino-compare");
   const refreshBtn = document.createElement("div");
   refreshBtn.innerHTML = `<h1>Start over</h1>`;
-  refreshBtn.classList.add("btn");
+  refreshBtn.classList.add("start-over");
   document.querySelector("footer").prepend(refreshBtn);
 
   refreshBtn.addEventListener("click", () => {
@@ -164,10 +166,8 @@ function isFormComplete(human) {
 
 // Use IIFE to get human data from form
 (function() {
-  const container = document.querySelector(".field-error");
+  const container = document.querySelector(".validation");
   const compareBtn = document.querySelector("#btn");
-  const fields = document.querySelectorAll("input");
-  fields.forEach(input => input.addEventListener("keyup", checkValidation));
 
   clearForm();
 
@@ -186,9 +186,6 @@ function isFormComplete(human) {
     } else {
       // attach appropriate error messages
       container.innerHTML = `<span class="error">Please complete all fields</span>`;
-      if (!document.querySelector(".error")) {
-        container.appendChild(validateText);
-      }
     }
   });
 })();
