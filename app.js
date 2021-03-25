@@ -167,4 +167,18 @@ function displayRefreshBtn() {
       clearForm();
 })();
 
-// On button click, prepare and display infographic
+/**
+ * DONE: there are globals that are accessible in the console (getHumanData)
+ *  - this isn't bc of the JS variables, for some reason typing in the element's #id into the console retrieves it
+ * TODO: add comments above functions: i.e. @param {Object} @returns {Object}, etc
+ * DONE: randomize fact on dino output
+ * TODO: add a re-launch button, refactor it
+ * DONE: BUG - why is the grid not re-displaying on refresh try
+ * DONE: add form validation
+ * DONE: remove erorr styles on refresh
+ * TODO: make element references DRY -- maybe pass in `document` to the IFFE / reference it as `d`?
+ * DONE: fix heightRatio (happens when empty form fields are submitted)
+ * TODO: add a hover state to display the rest of the facts
+ * TODO: refactor
+ * TODO: push commits
+ */
