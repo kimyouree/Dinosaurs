@@ -15,21 +15,36 @@ class Dinosaur {
     this.weightRatio = "weight ratio";
     this.dietDescription = "What kind of diet did they have?";
 
+    this.compareHeight(humanData);
+    this.compareWeight(humanData);
+    this.compareDiet(humanData);
   }
 // Create Dino Objects
 
-// Create Human Object
-
-// Use IIFE to get human data from form
-
 // Create Dino Compare Method 1
 // NOTE: Weight in JSON file is in lbs, height in inches.
+  compareHeight(humanData) {
+    const { feet, inches } = humanData;
+    const humanHeightIn = feet * 12 + inches;
+    this.heightRatio = (this.height / humanHeightIn).toFixed(1);
+  }
 
 // Create Dino Compare Method 2
-// NOTE: Weight in JSON file is in lbs, height in inches.
+  compareWeight(humanData) {
+    this.weightRatio = (this.weight / humanData.weight).toFixed(1);
+  }
 
 // Create Dino Compare Method 3
-// NOTE: Weight in JSON file is in lbs, height in inches.
+  compareDiet(humanData) {
+    let diet;
+    const hasSameDiet = humanData.diet.toLowerCase() === this.diet;
+    if (hasSameDiet) {
+      this.dietDescription = `You are both ${humanData.diet}s, pretty cool!`;
+    } else {
+      this.dietDescription = `You're a ${humanData.diet} but the ${this.species} was a ${this.diet}.`;
+    }
+  }
+}
 
 // Create Dino Objects
 function getDinosaurs(data, humanData) {
