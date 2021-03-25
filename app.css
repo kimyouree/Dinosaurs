@@ -187,3 +187,22 @@ select {
     display: block;
     font-size: 0.7em;
 }
+
+.error {
+  color: red;
+}
+
+.error-highlight {
+  border: 1px solid red;
+}
+
+.error-fine-text {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8em;
+  color: red;
+}
+
+.hidden {
+  visibility: hidden;
+}
