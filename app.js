@@ -114,7 +114,30 @@ function displayGrid(dinos, human) {
     .join("");
 
 // Add tiles to DOM
+  grid.innerHTML = tiles;
+}
 
+function clearForm() {
+  const fields = document.querySelectorAll("input");
+  fields.forEach(field => (field.value = ""));
+  const fieldError = document.querySelector(".error");
+  if (fieldError) fieldError.style.display = "none";
+}
+
+function displayRefreshBtn() {
+  const form = document.querySelector("#dino-compare");
+  const refreshBtn = document.createElement("div");
+  refreshBtn.innerHTML = `<h1>Start over</h1>`;
+  refreshBtn.classList.add("btn");
+  document.querySelector("footer").prepend(refreshBtn);
+
+  refreshBtn.addEventListener("click", () => {
+    grid.innerHTML = "";
+    refreshBtn.style.display = "none";
+    clearForm();
+    form.style.display = "block";
+  });
+}
 // Use IIFE to get human data from form
 (function() {
   const container = document.querySelector(".field-error");
@@ -122,6 +145,7 @@ function displayGrid(dinos, human) {
   const fields = document.querySelectorAll("input");
   fields.forEach(input => input.addEventListener("keyup", checkValidation));
 
+  clearForm();
 
   // On button click, prepare and display infographic
   compareBtn.addEventListener("click", function() {
@@ -130,8 +154,11 @@ function displayGrid(dinos, human) {
       let dinoArray = getDinosaurs(dinoData, humanData);
 
 // Remove form from screen
+      hideForm();
+
       displayGrid(dinoArray, humanData);
       displayRefreshBtn();
+      clearForm();
 })();
 
 // On button click, prepare and display infographic
