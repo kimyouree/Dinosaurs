@@ -141,6 +141,10 @@ input {
     background: #fff;
     border: 0;
 }
+/* temporary hide this for validation style testing */
+input:focus {
+  outline: none;
+}
 
 .form-field__short {
     width: 25%;
