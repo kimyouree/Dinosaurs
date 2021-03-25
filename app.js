@@ -69,6 +69,12 @@ function getHumanData() {
     diet: diet.value
   };
 }
+
+function hideForm() {
+  const form = document.querySelector("#dino-compare");
+  form.style.display = "none";
+}
+
 function getRandomFact(tileData) {
   if (tileData.species === "human") return;
   if (tileData.species === "Pigeon") return tileData.fact;
