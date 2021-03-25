@@ -144,21 +144,22 @@ function displayRefreshBtn() {
   });
 }
 
-function isFormComplete() {
-  // if fields are complete:
-  const fields = document.querySelectorAll("input");
-  return Array.from(fields).filter(field => field.value).length === 4;
-}
-
-function checkValidation() {
-  const isValid = !isNaN(parseInt(this.value));
-  const numberErrorMessage = document.querySelector(".error-fine-text");
-  if (!isValid && this.type === "number") {
-    console.log(numberErrorMessage);
-    numberErrorMessage.classList.remove("hidden");
+function isFormComplete(human) {
+  const errorField = document.querySelector(".validation-specific");
+  const { name, feet, inches, weight } = human;
+  let isComplete = false;
+  if (!name) {
+    errorField.innerHTML = `<p>Please fill out your name, human</p>`;
+  } else if (feet < 1) {
+    errorField.innerHTML = `<p>Feet must be a number</p>`;
+  } else if (inches < 1) {
+    errorField.innerHTML = `<p>Inches must be a number</p>`;
+  } else if (weight < 1) {
+    errorField.innerHTML = `<p>Weight must be a number</p>`;
   } else {
-    numberErrorMessage.classList.add("hidden");
+    isComplete = true;
   }
+  return isComplete;
 }
 
 // Use IIFE to get human data from form
@@ -172,9 +173,8 @@ function checkValidation() {
 
   // On button click, prepare and display infographic
   compareBtn.addEventListener("click", function() {
-    if (isFormComplete()) {
       const humanData = getHumanData();
-      console.log(humanData);
+    if (isFormComplete(humanData)) {
       let dinoArray = getDinosaurs(dinoData, humanData);
 
       // Remove form from screen
