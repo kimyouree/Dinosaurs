@@ -69,7 +69,49 @@ function getHumanData() {
     diet: diet.value
   };
 }
+function getRandomFact(tileData) {
+  if (tileData.species === "human") return;
+  if (tileData.species === "Pigeon") return tileData.fact;
+
+  const randomIndex = Math.floor(Math.random() * Math.floor(6));
+
+  switch (randomIndex) {
+    case 0:
+      return tileData.dietDescription;
+    case 1:
+      return tileData.fact;
+    case 2:
+      return `The ${tileData.species} was ${tileData.heightRatio} ${
+        tileData.heightRatio > 1 ? "taller" : "shorter"
+      } than you.`;
+    case 3:
+      return `The ${tileData.species} was ${tileData.weightRatio} ${
+        tileData.weightRatio > 1 ? "taller" : "shorter"
+      } than you.`;
+    case 4:
+      return `The ${tileData.species} existed during the ${tileData.when} period.`;
+    default:
+      return `The ${tileData.species} lived in ${tileData.where}.`;
+  }
+}
+
+function displayGrid(dinos, human) {
+  const grid = document.querySelector("#grid");
+
 // Generate Tiles for each Dino in Array
+  const tileData = [...dinos.slice(0, 4), human, ...dinos.slice(4)];
+  const tiles = tileData
+    .map(tile => {
+      return `
+        <div class="grid-item">
+          <h3>${tile.species || tile.name}</h3>
+          <img src="images/${tile.species || "human"}.png">
+          <p style="${
+            typeof tile.fact === "undefined" ? "display: none" : ""
+          }">${getRandomFact(tile)}</p>
+        </div>`;
+    })
+    .join("");
 
 // Add tiles to DOM
 
@@ -88,6 +130,8 @@ function getHumanData() {
       let dinoArray = getDinosaurs(dinoData, humanData);
 
 // Remove form from screen
+      displayGrid(dinoArray, humanData);
+      displayRefreshBtn();
 })();
 
 // On button click, prepare and display infographic
