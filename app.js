@@ -19,22 +19,21 @@ class Dinosaur {
     this.compareWeight(humanData);
     this.compareDiet(humanData);
   }
-// Create Dino Objects
 
-// Create Dino Compare Method 1
-// NOTE: Weight in JSON file is in lbs, height in inches.
+  // Create Dino Compare Method 1
+  // NOTE: Weight in JSON file is in lbs, height in inches.
   compareHeight(humanData) {
     const { feet, inches } = humanData;
     const humanHeightIn = feet * 12 + inches;
     this.heightRatio = (this.height / humanHeightIn).toFixed(1);
   }
 
-// Create Dino Compare Method 2
+  // Create Dino Compare Method 2
   compareWeight(humanData) {
     this.weightRatio = (this.weight / humanData.weight).toFixed(1);
   }
 
-// Create Dino Compare Method 3
+  // Create Dino Compare Method 3
   compareDiet(humanData) {
     let diet;
     const hasSameDiet = humanData.diet.toLowerCase() === this.diet;
@@ -104,7 +103,7 @@ function getRandomFact(tileData) {
 function displayGrid(dinos, human) {
   const grid = document.querySelector("#grid");
 
-// Generate Tiles for each Dino in Array
+  // Generate Tiles for each Dino in Array
   const tileData = [...dinos.slice(0, 4), human, ...dinos.slice(4)];
   const tiles = tileData
     .map(tile => {
@@ -119,7 +118,7 @@ function displayGrid(dinos, human) {
     })
     .join("");
 
-// Add tiles to DOM
+  // Add tiles to DOM
   grid.innerHTML = tiles;
 }
 
@@ -144,6 +143,24 @@ function displayRefreshBtn() {
     form.style.display = "block";
   });
 }
+
+function isFormComplete() {
+  // if fields are complete:
+  const fields = document.querySelectorAll("input");
+  return Array.from(fields).filter(field => field.value).length === 4;
+}
+
+function checkValidation() {
+  const isValid = !isNaN(parseInt(this.value));
+  const numberErrorMessage = document.querySelector(".error-fine-text");
+  if (!isValid && this.type === "number") {
+    console.log(numberErrorMessage);
+    numberErrorMessage.classList.remove("hidden");
+  } else {
+    numberErrorMessage.classList.add("hidden");
+  }
+}
+
 // Use IIFE to get human data from form
 (function() {
   const container = document.querySelector(".field-error");
@@ -155,16 +172,25 @@ function displayRefreshBtn() {
 
   // On button click, prepare and display infographic
   compareBtn.addEventListener("click", function() {
+    if (isFormComplete()) {
       const humanData = getHumanData();
       console.log(humanData);
       let dinoArray = getDinosaurs(dinoData, humanData);
 
-// Remove form from screen
+      // Remove form from screen
       hideForm();
 
       displayGrid(dinoArray, humanData);
       displayRefreshBtn();
       clearForm();
+    } else {
+      // attach appropriate error messages
+      container.innerHTML = `<span class="error">Please complete all fields</span>`;
+      if (!document.querySelector(".error")) {
+        container.appendChild(validateText);
+      }
+    }
+  });
 })();
 
 /**
