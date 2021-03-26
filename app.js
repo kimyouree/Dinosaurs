@@ -92,6 +92,7 @@ function displayRefreshBtn() {
   const refreshBtn = document.createElement("div");
   refreshBtn.innerHTML = `<h1>Start over</h1>`;
   refreshBtn.classList.add("start-over");
+  refreshBtn.classList.add("btn");
   document.querySelector("footer").prepend(refreshBtn);
 
   refreshBtn.addEventListener("click", () => {

@@ -1,14 +1,15 @@
 /* General Styles */
+html {
+  background-color: #131516;
+}
+
 body {
   background: rgb(111, 208, 224);
-  background: linear-gradient(
-    0deg,
-    rgb(111, 208, 224) 0%,
-    rgb(171, 228, 167) 100%
-  );
+  background: linear-gradient(0deg, rgb(28, 114, 128) 0%, rgb(47, 92, 28) 100%);
   font-family: "Open Sans", sans-serif;
   text-align: center;
   min-height: 100vh;
+  color: #e8e6e3;
 }
 
 h1 {
@@ -37,6 +38,17 @@ h3 {
 
 p {
   font-weight: 100;
+}
+
+a {
+  color: #3391ff;
+}
+
+select,
+input {
+  background-color: #181a1b;
+  border-color: #736b5e;
+  color: #e8e6e3;
 }
 
 /* Grid Styles */
@@ -122,7 +134,7 @@ p {
 
 /* Form Styles */
 .form-container {
-  background: #eee;
+  background: rgb(34, 36, 38);
   padding: 1.3em;
   text-align: left;
   max-width: 400px;
@@ -138,7 +150,7 @@ form p {
 
 input {
   padding: 0.7em;
-  background: #fff;
+  background: rgb(24, 26, 27);
   border: 0;
 }
 /* temporary hide this for validation style testing */
@@ -164,7 +176,7 @@ select {
 #btn,
 .btn {
   display: inline-block;
-  background: #ccc;
+  background: rgb(53, 57, 59);
   padding: 0.8em;
   margin: 1.2em auto;
   transition: ease 0.3s all;
@@ -178,7 +190,8 @@ select {
 }
 
 .start-over:hover {
-  color: green;
+  background-color: greenyellow;
+  color: rgb(1, 65, 1);
 }
 
 .start-over {
