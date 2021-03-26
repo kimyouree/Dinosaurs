@@ -109,11 +109,11 @@ function isFormComplete(human) {
   if (!name) {
     errorField.innerHTML = `<p>Please fill out your name, human</p>`;
   } else if (feet < 1) {
-    errorField.innerHTML = `<p>Feet must be a number</p>`;
+    errorField.innerHTML = `<p>Feet must be a number greater than 0</p>`;
   } else if (inches < 1) {
-    errorField.innerHTML = `<p>Inches must be a number</p>`;
+    errorField.innerHTML = `<p>Inches must be a number greater than 0</p>`;
   } else if (weight < 1) {
-    errorField.innerHTML = `<p>Weight must be a number</p>`;
+    errorField.innerHTML = `<p>Weight must be a number greater than 0</p>`;
   } else {
     isComplete = true;
   }
