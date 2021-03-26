@@ -5,14 +5,13 @@ import Dinosaur from "./classes/Dinosaur.js";
 function getDinosaurs(data, humanData) {
   // turn this into a factory function (design patterns - sohamkamani)
   let dinosaurs = data["Dinos"].map(
-    dinoData => new Dinosaur(dinoData, humanData)
+    (dinoData) => new Dinosaur(dinoData, humanData)
   );
   return dinosaurs;
 }
 
 // Create Human Object
 function getHumanData() {
-  // should I try moving this into the IIFE to see if globals are still exposed?
   const [name, feet, inches, weight] = document.querySelectorAll("input");
   const diet = document.querySelector("select");
 
@@ -21,7 +20,7 @@ function getHumanData() {
     feet: Number(feet.value),
     inches: Number(inches.value),
     weight: Number(weight.value),
-    diet: diet.value
+    diet: diet.value,
   };
 }
 
@@ -62,7 +61,7 @@ function displayGrid(dinos, human) {
   // Generate Tiles for each Dino in Array
   const tileData = [...dinos.slice(0, 4), human, ...dinos.slice(4)];
   const tiles = tileData
-    .map(tile => {
+    .map((tile) => {
       return `
         <div class="grid-item">
           <h3>${tile.species || tile.name}</h3>
@@ -82,7 +81,7 @@ function clearForm() {
   const fields = document.querySelectorAll("input");
   const validation = document.querySelector(".validation");
   const validationSpecific = document.querySelector(".validation-specific");
-  fields.forEach(field => (field.value = ""));
+  fields.forEach((field) => (field.value = ""));
   validation.innerHTML = "";
   validationSpecific.innerHTML = "";
 }
@@ -122,21 +121,20 @@ function isFormComplete(human) {
 }
 
 // Use IIFE to get human data from form
-(function() {
+(function () {
   const container = document.querySelector(".validation");
   const compareBtn = document.querySelector("#btn");
 
   clearForm();
 
   // On button click, prepare and display infographic
-  compareBtn.addEventListener("click", function() {
+  compareBtn.addEventListener("click", function () {
     const humanData = getHumanData();
     if (isFormComplete(humanData)) {
-      let dinoArray = getDinosaurs(dinoData, humanData);
+      const dinoArray = getDinosaurs(dinoData, humanData);
 
       // Remove form from screen
       hideForm();
-
       displayGrid(dinoArray, humanData);
       displayRefreshBtn();
       clearForm();
