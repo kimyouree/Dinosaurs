@@ -1,5 +1,7 @@
 # Object Oriented Javascript
 
+### View project at: https://kimyouree.github.io/Dinosaurs/
+
 ### Project Requirements
 
 To complete this project, your UI must show the following:
