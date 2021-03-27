@@ -1,4 +1,4 @@
-const dinoObj = {
+const ALL_DINOSAURS = {
   Dinos: [
     {
       species: "Triceratops",
@@ -76,4 +76,4 @@ const dinoObj = {
   ]
 };
 
-export default dinoObj;
+export default ALL_DINOSAURS;

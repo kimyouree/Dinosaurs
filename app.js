@@ -1,4 +1,4 @@
-import dinoData from "./dino.js";
+import ALL_DINOSAURS from "./dino.js";
 import Dinosaur from "./classes/Dinosaur.js";
 
 // Create Dino Objects
@@ -131,7 +131,7 @@ function isFormComplete(human) {
   compareBtn.addEventListener("click", function () {
     const humanData = getHumanData();
     if (isFormComplete(humanData)) {
-      const dinoArray = getDinosaurs(dinoData, humanData);
+      const dinoArray = getDinosaurs(ALL_DINOSAURS, humanData);
 
       // Remove form from screen
       hideForm();
