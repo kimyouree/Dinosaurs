@@ -9,6 +9,7 @@ export default class Dinosaur {
   constructor(dinoObj, humanData) {
     const { species, weight, height, diet, where, when, fact } = dinoObj;
     this.species = species;
+    this.speciesLowercase = species.toLowerCase();
     this.height = Number(height);
     this.weight = Number(weight);
     this.diet = diet;

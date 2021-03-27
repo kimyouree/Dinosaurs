@@ -86,7 +86,7 @@ function displayGrid(dinos, human) {
       return `
         <div class="grid-item">
           <h3>${tile.species || tile.name}</h3>
-          <img src="images/${tile.species || "human"}.png">
+          <img src="images/${tile.speciesLowercase || "human"}.png">
           <p style="${
             typeof tile.fact === "undefined" ? "display: none" : ""
           }">${getRandomFact(tile)}</p>
