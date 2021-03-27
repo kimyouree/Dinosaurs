@@ -1,4 +1,10 @@
-// Create Dino Constructor
+/**
+ * @description Create Dino class to create dinos
+ * @constructor
+ * @param {object} dinoObj - object holding a specific dino's details
+ * @param {object} humanData - object holdings form input values
+ * @returns {object} a new dino with properties relative to the human's
+ */
 export default class Dinosaur {
   constructor(dinoObj, humanData) {
     const { species, weight, height, diet, where, when, fact } = dinoObj;
