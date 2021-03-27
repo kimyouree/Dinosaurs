@@ -62,7 +62,7 @@ function getRandomFact(tileData) {
         tileData.heightRatio > 1 ? "taller" : "shorter"
       } than you.`;
     case 3:
-      return `The ${tileData.species} was ${tileData.weightRatio} ${
+      return `The ${tileData.species} was ${tileData.weightRatio} times ${
         tileData.weightRatio > 1 ? "taller" : "shorter"
       } than you.`;
     case 4:
@@ -142,8 +142,8 @@ function isFormComplete(human) {
     errorField.innerHTML = `<p>Please fill out your name, human</p>`;
   } else if (feet < 1) {
     errorField.innerHTML = `<p>Feet must be a number greater than 0</p>`;
-  } else if (inches < 1) {
-    errorField.innerHTML = `<p>Inches must be a number greater than 0</p>`;
+  } else if (inches < 0) {
+    errorField.innerHTML = `<p>Inches must be a number 0 or greater</p>`;
   } else if (weight < 1) {
     errorField.innerHTML = `<p>Weight must be a number greater than 0</p>`;
   } else {
