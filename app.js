@@ -185,6 +185,9 @@ function isFormComplete(human) {
  * TODO: make element references DRY?
  * TODO: wrap tile grid in `DocumentFragment` before appending to the DOM (review note)
  * TODO: another way to create a tile array (also without mutating the array) is to use `splice()`
+ * TODO: add alt tag to img tag
+ * TODO: clean up properties in Dinosaur class
+ * TODO: refactor project using constructor/factory/module pattern/revealing module pattern in creating objects for both human and or dinos (view note)
  * Future todo: add a hover state to display the rest of the facts
  *
  * LEARNED: use data to control UI instead of relying on dom manipulation for everything
