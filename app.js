@@ -179,12 +179,12 @@ function isFormComplete(human) {
   });
 })();
 
-/**
+/** =============== Features to come ====================== **
+ *
  * TODO: add comments above functions: i.e. @param {Object} @returns {Object}, etc
- * TODO: add a re-launch button, refactor it
  * TODO: make element references DRY
- * TODO: add a hover state to display the rest of the facts
- * TODO: refactor
- * - invert color scheme so error styles nicely contrast
- * - rename error classes & style selectors
- */
+ * Future todo: add a hover state to display the rest of the facts
+ *
+ * LEARNED: use data to control UI instead of relying on dom manipulation for everything
+ *
+ * ======================================================== **/
