@@ -182,7 +182,9 @@ function isFormComplete(human) {
 /** =============== Features to come ====================== **
  *
  * TODO: add comments above functions: i.e. @param {Object} @returns {Object}, etc
- * TODO: make element references DRY
+ * TODO: make element references DRY?
+ * TODO: wrap tile grid in `DocumentFragment` before appending to the DOM (review note)
+ * TODO: another way to create a tile array (also without mutating the array) is to use `splice()`
  * Future todo: add a hover state to display the rest of the facts
  *
  * LEARNED: use data to control UI instead of relying on dom manipulation for everything
