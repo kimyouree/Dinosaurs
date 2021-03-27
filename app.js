@@ -188,6 +188,7 @@ function isFormComplete(human) {
  * TODO: add alt tag to img tag
  * TODO: clean up properties in Dinosaur class
  * TODO: refactor project using constructor/factory/module pattern/revealing module pattern in creating objects for both human and or dinos (view note)
+ * TODO: style - (investigate and) add base font size to body so the grid doesn't look huge on github pages, which I suspect might be using a larger font size? (check this)
  * Future todo: add a hover state to display the rest of the facts
  *
  * LEARNED: use data to control UI instead of relying on dom manipulation for everything
